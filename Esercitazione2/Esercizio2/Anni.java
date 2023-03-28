@@ -3,8 +3,6 @@ package Esercitazione2.Esercizio2;
 import java.time.*;
 import fond.io.*;
 
-import fond.io.InputWindow;
-
 public class Anni {
     public static void main(String[] args) {
         LocalDate oggi = LocalDate.now();

@@ -1,3 +1,5 @@
+package Esercitazione1.punto;
+
 public class Punto{
 
 	private double x;

@@ -1,3 +1,5 @@
+package Esercitazione1.punto;
+
 import fond.io.*;
 
 public class EsercizioTriangolo {
