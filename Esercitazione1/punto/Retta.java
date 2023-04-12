@@ -1,3 +1,5 @@
+package Esercitazione1.punto;
+
 public class Retta{
 
 	private double m; // coefficiente angolare
