@@ -1,4 +1,4 @@
-
+package immagine;
 public class Immagine {
 	
 	private Colore[][] pixels;

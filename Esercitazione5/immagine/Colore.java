@@ -1,3 +1,4 @@
+package immagine;
 
 public class Colore {
 	private int red;
