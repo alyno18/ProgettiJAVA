@@ -13,7 +13,7 @@ public class ProvaSistema {
             }
         }
         for(int i=0;i<b.length;i++){
-                b[i]= in.readDouble("Inserisci l'elemento:"+i);
+            b[i]= in.readDouble("Inserisci l'elemento:"+i);
         }
         Sistema S1 =new Sistema(A,b);
         out.writeln(S1.toString());
