@@ -43,6 +43,7 @@ public class RegistroVoti {
         double somma = 0.0;
 
         for(int i = 0;i < voti.length;i++){
+            somma = 0.0;
             for(int j = 0;j < voti[0].length;j++){
                 somma += voti[i][j];
             }
@@ -52,12 +53,56 @@ public class RegistroVoti {
         return medie;
     }
 
+    public String[] insufficiente(String m){
+        int posM = -1;
+
+        for(int i = 0;i < this.materie.length;i++){
+            if(this.materie[i].equals(m)){
+                posM = i;
+            }
+        }
+
+        int count = 0;
+        if(posM > 0){
+        for(int i = 0;i < this.nomi.length;i++){
+            if(voti[i][posM] < 6.0){
+                count++;
+            }
+        }
+        }
+
+        String[] insufficiente;
+        int j = 0;
+        if(count > 0){
+            insufficiente = new String[count];
+            while(j < count){
+                for(int i = 0;i < this.nomi.length;i++){
+                    if(voti[i][posM] < 6.0){
+                        insufficiente[j] = nomi[i];
+                        j++;
+                    }
+                }
+            }
+            return insufficiente;
+        }else{
+            insufficiente = new String[1];
+            insufficiente[0] = "";
+            return insufficiente;
+        }
+    }
+
     public String toString(){
-        String s = "";
+        String s = "\t";
+
+        for(int i = 0;i < this.materie.length;i++){
+            s += "\t" +this.materie[i];
+        }
+        s += "\n";
+
         for(int i = 0;i < voti.length;i++){
-            s += "Nome: " +nomi[i] +"\n";
+            s += nomi[i];
             for(int j = 0;j < voti[0].length;j++){
-                s += materie[j] +": " +voti[i][j] +"\n";
+                s += "\t" +voti[i][j];
             }
             s += "\n";
         }

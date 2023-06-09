@@ -22,16 +22,38 @@ public class ProvaRegistroVoti {
 
         RegistroVoti r = new RegistroVoti(stu, mat);
 
-        double[] medie = r.medieVoti();
-        out.writeln("Ecco le medie dei voti:");
-        for(int i = 0;i < medie.length;i++){
-            out.writeln(stu[i] +":");
-            for(int j = 0;j < stu.length;j++){
-                out.writeln(mat[i] +":" +medie[i]);
-            }
-            out.write("\n");
-        }
         
-        out.write(r.toString());
+
+        int voto = in.readInt("Inserisci il voto che vuoi inserire (0 per terminare)");
+        while(voto > 0){
+            for(int i = 0;i < numStu;i++){
+                for(int j = 0;j < numMat;j++){
+                    boolean result  = r.registraVoto(in.readString("Inserisci nome"), in.readString("Inserisci materia"), in.readInt("Inserisci voto"));
+                    if(result){
+                        out.write("Inserimento andato a buon fine");
+                    }else{
+                        out.write("Inserimento non andato a buon fine");
+                    }
+                }
+            }
+        }
+
+        out.write("\nRegistro:\n" +r.toString());
+
+        double[] medie = r.medieVoti();
+        out.write("Ecco le medie dei voti:\n");
+        for(int i = 0;i < medie.length;i++){
+            out.write(stu[i] +":" +medie[i] +"\n");
+        }
+
+        String m = in.readString("Inserisci materia");
+        String[] insufficenze = r.insufficiente(m);
+        if(insufficenze[0] == ""){
+            out.write("Nessuna insufficenza");
+        }else{
+            for(int i = 0;i < insufficenze.length;i++){
+                out.write("\nNome: " +insufficenze[i]);
+            }
+        }
     }
 }
